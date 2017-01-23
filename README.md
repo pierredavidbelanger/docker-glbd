@@ -6,7 +6,9 @@ Dockerized [Galera Load Balancer](https://github.com/codership/glb) daemon
 The `ENTRYPOINT` is `glbd` it self, so this will print the help:
 
 ```sh
-$ docker run --rm -it pierredavidbelanger/glbd:1.0.1.1 --version --help
+docker run --rm -it pierredavidbelanger/glbd:1.0.1.1 --version --help
+```
+```sh
 Usage:
   /usr/local/sbin/glbd [OPTIONS] LISTEN_ADDRESS [DESTINATION_LIST]
 ...
@@ -22,7 +24,7 @@ I will not repeat their doc, but here instead, is an example to
 - and expose the control interface on `4444` on the host
 
 ```sh
-$ docker run --rm -it \
+docker run --rm -it \
     -p '8080:8080' \
     -p '4444:4444' \
     pierredavidbelanger/glbd:1.0.1.1 \
@@ -32,7 +34,4 @@ $ docker run --rm -it \
         0.0.0.0:8080 \
         app1:8181 \
         app2:8181
-Usage:
-  /usr/local/sbin/glbd [OPTIONS] LISTEN_ADDRESS [DESTINATION_LIST]
-...
 ```
